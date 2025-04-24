@@ -5,7 +5,9 @@ public class Main {
 
         System.out.println("Hello world");
 
-        
+        System.out.println(5000);
+        System.out.println(20.5);
+        System.out.println("5000.4");
 
     }
 }
