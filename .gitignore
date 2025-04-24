@@ -1,0 +1,102 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Eclipse
+.settings/
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+
+# JetBrains Rider
+.idea/.idea_modules/
+.idea/workspace.xml
+
+# Environment files
+.env
+*.local
+
+# Operating System files
+*.swp
+*~
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# MacOS Finder
+.AppleDouble
+.LSOverride
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# VSCode
+.vscode/
+
+# Gradle Wrapper
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
+# Miscellaneous IDEs (if you are using other IDEs)
+*.launch
+*.swm
+*.swo
+
+# JDK
+*.jfr
+*.jdi
