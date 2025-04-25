@@ -65,6 +65,7 @@ public class Task_27 {
         return temp;
     }
 
+
     public static void main(String[] args) {
 
         int[] numbers = {3,4,5,3,2};
