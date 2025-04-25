@@ -35,7 +35,7 @@ public class Task_27 {
         return numbers[numbers.length/2];
     }
 
-    private static int[] newTab(int[] tab1, int[] tab2){
+    private static int[] addTwoTable(int[] tab1, int[] tab2){
         int[] temp = new int[tab1.length + tab2.length];
         for (int i = 0; i < temp.length; i++) {
             if (i < tab1.length) temp[i] = tab1[i];
@@ -45,10 +45,7 @@ public class Task_27 {
     }
 
     private static void soutTab(int[] tab){
-
-        for (int i = 0; i < tab.length; i++) {
-            System.out.print(tab[i] + " | ");
-        }
+        for (int i : tab) System.out.print(tab[i] + " | ");
     }
 
     public static void main(String[] args) {
@@ -63,7 +60,7 @@ public class Task_27 {
         System.out.println(sumElements2(numbers) + sumElements2(numbers2));
         System.out.println(sumFirstLast(numbers));
         System.out.println("Element środkowy: " + elemMiddle( numbers));
-        
-        soutTab(newTab(numbers2, numbers));
+
+        soutTab(addTwoTable(numbers2, numbers));
     }
 }
