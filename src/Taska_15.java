@@ -11,5 +11,13 @@ public class Taska_15 {
         //else System.out.println("Imię męskie");
 
         System.out.println(name.endsWith("a") ? "imię żeńskie" : "Imię męskie");
+
+        char lastLetter = name.charAt(name.length() -1);
+        char firstLetter = name.toLowerCase().charAt(0);
+        System.out.println(firstLetter);
+
+        boolean answer = (lastLetter == firstLetter);
+        System.out.println(answer);
+
     }
 }
