@@ -45,7 +45,24 @@ public class Task_27 {
     }
 
     private static void soutTab(int[] tab){
-        for (int i : tab) System.out.print(tab[i] + " | ");
+        for (int i : tab) System.out.print(i + " | ");
+    }
+    
+    private static int maxElemFromTable(int[] tab){
+        int max = 0;
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] > max) max = tab[i];
+        }
+        return max;
+    }
+
+    private static int[] reverseTable(int[] tab){
+        int[] temp = new int[tab.length];
+        int j= tab.length-1;
+        for (int i = 0; i < tab.length; i++, j--) {
+            temp[j] = tab[i];
+        }
+        return temp;
     }
 
     public static void main(String[] args) {
@@ -62,5 +79,8 @@ public class Task_27 {
         System.out.println("Element środkowy: " + elemMiddle( numbers));
 
         soutTab(addTwoTable(numbers2, numbers));
+
+        System.out.println("\n\nElem Max: " + maxElemFromTable(numbers));
+        soutTab(reverseTable(addTwoTable(numbers2, numbers)));
     }
 }
