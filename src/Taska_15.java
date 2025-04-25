@@ -7,7 +7,9 @@ public class Taska_15 {
         System.out.println("Podaj imię: ");
         String name = scanner.next();
 
-        if (name.endsWith("a") && !name.equals("Barnaba")) System.out.println("To imię żeńskie");
-        else System.out.println("Imię męskie");
+        //if (name.endsWith("a") && !name.equals("Barnaba")) System.out.println("To imię żeńskie");
+        //else System.out.println("Imię męskie");
+
+        System.out.println(name.endsWith("a") ? "imię żeńskie" : "Imię męskie");
     }
 }
