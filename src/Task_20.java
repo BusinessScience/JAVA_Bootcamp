@@ -36,8 +36,8 @@ public class Task_20 {
         }
 
         System.out.println("Zgadłeś " + check + " liczb!");
-        for (int i = 0; i < 6; i++) {
-            if (tab3[i] != 0) System.err.println(tab3[i]);
+        for (int i = 0; i < check; i++) {
+            System.err.println(tab3[i]);
         }
     }
 }
