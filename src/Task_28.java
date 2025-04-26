@@ -1,6 +1,6 @@
 public class Task_28 {
 
-    private static int[] twoMiddle(int[] tab){
+    private static int[] twoMiddleElementsFromTab(int[] tab){
         if (tab.length % 2 == 0){
             return new int[]{tab[(tab.length/2)-1], tab[tab.length/2]};
         }else return new int[]{(tab.length / 2)+1};
@@ -14,6 +14,6 @@ public class Task_28 {
     public static void main(String[] args) {
 
         int[] tab={1,2,3,5,6,7};
-        soutTab(twoMiddle(tab));
+        soutTab(twoMiddleElementsFromTab(tab));
     }
 }
