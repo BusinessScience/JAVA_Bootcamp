@@ -1,3 +1,4 @@
+
 public class Task_29 {
 
     private static String[] getOnlyLettersLong(String[] words, int howLong) {
@@ -20,7 +21,7 @@ public class Task_29 {
         return temp;
     }
 
-    private static void soutTab(String[] tab) {
+    protected static void soutTab(String[] tab) {
         for (String i : tab) System.out.print(i + " | ");
     }
 
