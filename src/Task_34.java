@@ -20,7 +20,7 @@ public class Task_34 {
         }
         for (Map.Entry<Integer, Integer> m : mapa.entrySet())
             System.out.println(m.getKey() + " wystapiła " + m.getValue() + "razy");
-        
+
         mapa.forEach((k,v) -> System.err.println(k + " wystapiła " + v + " razy"));
     }
 
