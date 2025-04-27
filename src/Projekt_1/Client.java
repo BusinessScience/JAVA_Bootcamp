@@ -55,4 +55,15 @@ public class Client {
     public void setAdress(Adress adress) {
         this.adress = adress;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", wiek=" + wiek +
+                ", adress=" + adress +
+                '}';
+    }
 }

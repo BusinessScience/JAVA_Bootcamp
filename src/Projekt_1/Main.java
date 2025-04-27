@@ -11,5 +11,7 @@ public class Main {
         System.out.println(client.getAdress().getMiasto());
         System.out.println(client.getAdress().getKodPocztowy());
         System.out.println(client2.getAdress().getKodPocztowy());
+
+        System.out.println(client);
     }
 }

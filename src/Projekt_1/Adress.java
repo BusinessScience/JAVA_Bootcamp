@@ -40,6 +40,15 @@ public class Adress {
         else this.kodPocztowy= null;
     }
 
+    @Override
+    public String toString() {
+        return "Adress{" +
+                "ulica='" + ulica + '\'' +
+                ", miasto='" + miasto + '\'' +
+                ", kodPocztowy='" + kodPocztowy + '\'' +
+                '}';
+    }
+
     public static boolean isValidZipCode(String zipCode) {
         char[] kod = zipCode.toCharArray();
 
