@@ -1,4 +1,3 @@
-import Projekt_2.Boat;
 
 import java.util.*;
 
