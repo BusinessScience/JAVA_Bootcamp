@@ -1,6 +1,14 @@
 package projekt_2_JDBC;
 
+import projekt_2_JDBC.model.Person;
+import projekt_2_JDBC.service.ServiceDB;
+
 public class Main {
+
     public static void main(String[] args) {
+
+        ServiceDB serviceDB = new ServiceDB();
+        //serviceDB.insert(new Person("Kasia", "kasia@buziaczek.pl"));
+        serviceDB.soutAll(serviceDB.selectAllFromDB());
     }
 }

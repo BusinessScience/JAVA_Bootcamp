@@ -22,7 +22,8 @@ public class ServiceDB {
         return connection;
     }
 
-    public boolean insert(String sql, Person person) {
+    public boolean insert(Person person) {
+        String sql = "INSERT into people (username, email) values (?,?)";
         try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
             preparedStatement.setString(1, person.getName());
             preparedStatement.setString(2, person.getEmail());
@@ -34,21 +35,18 @@ public class ServiceDB {
         return true;
     }
 
-    public List<Person> selectAllFromDB(String sql) {
+    public List<Person> selectAllFromDB() {
+        String sql = "SELECT id, username, email FROM people";
         List<Person> people = new ArrayList<>();
-        ResultSet resultSet = null;
+        ResultSet resultSet;
 
         try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
             resultSet = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-        try {
             while (resultSet.next()) {
                 Person person = new Person();
                 person.setId(resultSet.getInt("id"));
-                person.setName(resultSet.getString("name"));
+                person.setName(resultSet.getString("username"));
                 person.setEmail(resultSet.getString("email"));
                 people.add(person);
             }
@@ -56,5 +54,10 @@ public class ServiceDB {
             throw new RuntimeException(e);
         }
         return people;
+    }
+
+    public void soutAll(List<Person> people){
+        for (Person p : people)
+            System.out.println(p);
     }
 }

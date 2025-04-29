@@ -5,6 +5,20 @@ public class Person {
     private String name;
     private String email;
 
+    public Person() {
+    }
+
+    public Person(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public Person(Integer id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -27,5 +41,14 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
