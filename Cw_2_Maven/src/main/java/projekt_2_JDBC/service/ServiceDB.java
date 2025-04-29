@@ -91,8 +91,24 @@ public class ServiceDB {
             deletedRows = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            return -1;
         }
         return deletedRows;
+    }
+
+    public int updateEmailById(int id, String newEmail){
+        int updatedRows = 0;
+        String sql = "UPDATE people SET email = ? WHERE id =?";
+
+        try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
+            preparedStatement.setString(1, newEmail);
+            preparedStatement.setInt(2, id);
+            updatedRows = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return updatedRows;
     }
 
     public void soutAll(List<Person> people) {
