@@ -1,6 +1,5 @@
 package projekt_2_JDBC.service;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,7 +37,7 @@ public class ServiceDB {
     public List<Person> selectAllFromDB() {
         String sql = "SELECT id, username, email FROM people";
         List<Person> people = new ArrayList<>();
-        ResultSet resultSet;
+        ResultSet resultSet = null;
 
         try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
             resultSet = preparedStatement.executeQuery();
@@ -52,6 +51,8 @@ public class ServiceDB {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+          closeResultSetHelper(resultSet);
         }
         return people;
     }
@@ -59,5 +60,16 @@ public class ServiceDB {
     public void soutAll(List<Person> people){
         for (Person p : people)
             System.out.println(p);
+    }
+
+    private static void closeResultSetHelper(ResultSet resultSet){
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

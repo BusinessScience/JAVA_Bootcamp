@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         ServiceDB serviceDB = new ServiceDB();
-        //serviceDB.insert(new Person("Kasia", "kasia@buziaczek.pl"));
+        //serviceDB.insert(new Person("Jolka", "Jolka@buziaczek.pl"));
         serviceDB.soutAll(serviceDB.selectAllFromDB());
     }
 }
