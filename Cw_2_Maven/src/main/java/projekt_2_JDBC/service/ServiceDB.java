@@ -57,6 +57,30 @@ public class ServiceDB {
         return people;
     }
 
+    public Person getPersonByEmail(String email){
+        String sql = "SELECT id, username, email FROM people WHERE email = ?";
+        ResultSet resultSet = null;
+        Person person = new Person();
+
+        try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
+            preparedStatement.setString(1,email);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                if (email.equals(resultSet.getString("email"))) {
+                    person.setId(resultSet.getInt("id"));
+                    person.setName(resultSet.getString("username"));
+                    person.setEmail(resultSet.getString("email"));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            closeResultSetHelper(resultSet);
+        }
+        return person;
+    }
+
     public void soutAll(List<Person> people){
         for (Person p : people)
             System.out.println(p);

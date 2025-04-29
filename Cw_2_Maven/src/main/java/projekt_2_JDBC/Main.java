@@ -9,6 +9,7 @@ public class Main {
 
         ServiceDB serviceDB = new ServiceDB();
         //serviceDB.insert(new Person("Jolka", "Jolka@buziaczek.pl"));
-        serviceDB.soutAll(serviceDB.selectAllFromDB());
+        //serviceDB.soutAll(serviceDB.selectAllFromDB());
+        System.out.println(serviceDB.getPersonByEmail("kasia@buziaczek.pl"));
     }
 }
