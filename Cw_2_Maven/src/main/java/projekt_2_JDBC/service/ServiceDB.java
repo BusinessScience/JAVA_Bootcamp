@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import projekt_2_JDBC.config.Connections_DB;
 import projekt_2_JDBC.model.Person;
@@ -52,41 +53,41 @@ public class ServiceDB {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-          closeResultSetHelper(resultSet);
+            closeResultSetHelper(resultSet);
         }
         return people;
     }
 
-    public Person getPersonByEmail(String email){
+    public Optional<Person> getPersonByEmail(String email) {
         String sql = "SELECT id, username, email FROM people WHERE email = ?";
         ResultSet resultSet = null;
         Person person = new Person();
 
         try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
-            preparedStatement.setString(1,email);
+            preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
-                if (email.equals(resultSet.getString("email"))) {
+            if (resultSet.next()){
                     person.setId(resultSet.getInt("id"));
                     person.setName(resultSet.getString("username"));
                     person.setEmail(resultSet.getString("email"));
-                }
-            }
+                } else return Optional.empty();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return Optional.empty();
+
         } finally {
             closeResultSetHelper(resultSet);
         }
-        return person;
+        return Optional.of(person);
     }
 
-    public void soutAll(List<Person> people){
+    public void soutAll(List<Person> people) {
         for (Person p : people)
             System.out.println(p);
     }
 
-    private static void closeResultSetHelper(ResultSet resultSet){
+    private static void closeResultSetHelper(ResultSet resultSet) {
         if (resultSet != null) {
             try {
                 resultSet.close();
