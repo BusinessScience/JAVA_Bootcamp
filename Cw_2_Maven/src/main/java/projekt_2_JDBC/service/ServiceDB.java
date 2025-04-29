@@ -67,11 +67,11 @@ public class ServiceDB {
             preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
 
-            if (resultSet.next()){
-                    person.setId(resultSet.getInt("id"));
-                    person.setName(resultSet.getString("username"));
-                    person.setEmail(resultSet.getString("email"));
-                } else return Optional.empty();
+            if (resultSet.next()) {
+                person.setId(resultSet.getInt("id"));
+                person.setName(resultSet.getString("username"));
+                person.setEmail(resultSet.getString("email"));
+            } else return Optional.empty();
         } catch (SQLException e) {
             e.printStackTrace();
             return Optional.empty();
@@ -80,6 +80,19 @@ public class ServiceDB {
             closeResultSetHelper(resultSet);
         }
         return Optional.of(person);
+    }
+
+    public int deleteById(int id) {
+        int deletedRows = 0;
+        String sql = "SELECT id, username, email WHERE id =?";
+
+        try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
+            preparedStatement.setInt(1, id);
+            deletedRows = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return deletedRows;
     }
 
     public void soutAll(List<Person> people) {
