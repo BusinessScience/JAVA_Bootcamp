@@ -15,15 +15,15 @@ import static projekt_2_JDBC.config.Constants_DB_Connection.*;
 
 public class ServiceDB {
 
-    private Connection getConnection(){
+    private Connection getConnection() {
         Connection connection = Connections_DB.createConnection(DEFAULT_DRIVER, DEFAULT_URL, DEFAULT_USER, DEFAULT_PASS);
         if (connection == null)
             return null;
         return connection;
     }
 
-    public boolean insert(String sql, Person person){
-        try(final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)){
+    public boolean insert(String sql, Person person) {
+        try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
             preparedStatement.setString(1, person.getName());
             preparedStatement.setString(2, person.getEmail());
             preparedStatement.executeUpdate();
@@ -34,11 +34,11 @@ public class ServiceDB {
         return true;
     }
 
-    public List<Person> selectAllFromDB(String sql){
+    public List<Person> selectAllFromDB(String sql) {
         List<Person> people = new ArrayList<>();
         ResultSet resultSet = null;
 
-        try(final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)){
+        try (final PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
             resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -55,6 +55,6 @@ public class ServiceDB {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-            return people;
+        return people;
     }
 }
