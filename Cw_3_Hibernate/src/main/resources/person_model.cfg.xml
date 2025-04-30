@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-mapping xmlns="http://hibernate.org/xsd/hibernate-mapping">
+
+    <class name="project_1_Hibernate.model.Person"></class>
+</hibernate-mapping>

@@ -1,0 +1,55 @@
+<!-- hibernate-configuration-3.0.dtd -->
+
+        <!ELEMENT hibernate-configuration (session-factory, security?)>
+
+        <!ELEMENT session-factory (property*, mapping*, class-cache*, collection-cache*, event*, listener*)>
+        <!ATTLIST session-factory
+                name CDATA #IMPLIED
+                >
+
+        <!ELEMENT property (#PCDATA)>
+        <!ATTLIST property
+                name CDATA #REQUIRED
+                >
+
+        <!ELEMENT mapping EMPTY>
+        <!ATTLIST mapping
+                resource CDATA #IMPLIED
+                class CDATA #IMPLIED
+                file CDATA #IMPLIED
+                jar CDATA #IMPLIED
+                package CDATA #IMPLIED
+                >
+
+        <!ELEMENT class-cache EMPTY>
+        <!ATTLIST class-cache
+                class CDATA #REQUIRED
+                usage (read-only|nonstrict-read-write|read-write|transactional) #REQUIRED
+                region CDATA #IMPLIED
+                >
+
+        <!ELEMENT collection-cache EMPTY>
+        <!ATTLIST collection-cache
+                collection CDATA #REQUIRED
+                usage (read-only|nonstrict-read-write|read-write|transactional) #REQUIRED
+                region CDATA #IMPLIED
+                >
+
+        <!ELEMENT event EMPTY>
+        <!ATTLIST event
+                type CDATA #REQUIRED
+                listener CDATA #REQUIRED
+                >
+
+        <!ELEMENT listener EMPTY>
+        <!ATTLIST listener
+                class CDATA #REQUIRED
+                >
+
+        <!ELEMENT security (grant*)>
+
+        <!ELEMENT grant EMPTY>
+        <!ATTLIST grant
+                role CDATA #REQUIRED
+                entity-name CDATA #REQUIRED
+                >
